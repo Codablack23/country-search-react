@@ -57,14 +57,22 @@ export default function CountriesPage(){
     },[])
 
     return (
-        <main>
-            <h1>Countries Page</h1>
-            {countries.map((country, i)=>(
-                <div key={i}>
-                    <img src={country.flags.svg} alt={country.name.common}/>
-                    <p>{country.name.common}</p>
-                </div>
-            ))}
+        <main className="max-w-5xl mx-auto">
+            <section className="grid grid-cols-4 gap-8">
+                {countries.map((country, i)=>(
+                    <div className="shadow-md rounded-lg bg-white" key={i}>
+                        <div className="h-32">
+                            <img className="object-cover rounded-t-lg w-full h-32" src={country.flags.svg} alt={country.name.common}/>
+                        </div>
+                        <div className="p-4">
+                            <p className="text-lg font-bold mb-4">{country.name.common}</p>
+                            <p className="font-normal"><span className="font-medium">Population</span> : {country.population}</p>
+                            <p className="font-normal"><span className="font-medium">Region</span> : {country.region}</p>
+                            <p className="font-normal"><span className="font-medium">Capital</span> : {country.capital ? country.capital[0] :"N/A"}</p>
+                        </div>
+                    </div>
+                ))}
+            </section>
         </main>
     )
 }

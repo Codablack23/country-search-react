@@ -7,13 +7,13 @@ import Header from './components/shared/Header'
 
 function App() {
   return (
-    <>
+    <div className="bg-grey">
     <Header/>
       <Routes>
         <Route index element={<CountriesPage/>}/>
         <Route path='details' element={<CountryDetailPage/>}/>
       </Routes>
-    </>
+    </div>
   )
 }
 
